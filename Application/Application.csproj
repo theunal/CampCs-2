@@ -15,10 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Brands\Dtos\" />
-    <Folder Include="Features\Brands\Models\" />
     <Folder Include="Features\Brands\Consts\" />
-    <Folder Include="Features\Brands\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

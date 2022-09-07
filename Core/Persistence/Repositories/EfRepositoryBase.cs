@@ -32,9 +32,9 @@ public class EfRepositoryBase<TEntity, TContext> : IAsyncRepository<TEntity>, IR
     {
         IQueryable<TEntity> queryable = Query();
         if (!enableTracking) queryable = queryable.AsNoTracking();
-        if (include != null) queryable = include(queryable);
-        if (predicate != null) queryable = queryable.Where(predicate);
-        if (orderBy != null)
+        if (include is not null) queryable = include(queryable);
+        if (predicate is not null) queryable = queryable.Where(predicate);
+        if (orderBy is not null)
             return await orderBy(queryable).ToPaginateAsync(index, size, 0, cancellationToken);
         return await queryable.ToPaginateAsync(index, size, 0, cancellationToken);
     }

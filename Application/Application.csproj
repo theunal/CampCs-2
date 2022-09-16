@@ -15,7 +15,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Brands\Consts\" />
+    <Compile Remove="Features\Brands\Consts\**" />
+    <EmbeddedResource Remove="Features\Brands\Consts\**" />
+    <None Remove="Features\Brands\Consts\**" />
   </ItemGroup>
 
   <ItemGroup>

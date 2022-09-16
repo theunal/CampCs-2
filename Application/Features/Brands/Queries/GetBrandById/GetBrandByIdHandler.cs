@@ -12,21 +12,21 @@ namespace Application.Features.Brands.Queries.GetBrandById
         private readonly IMapper mapper;
         private readonly BrandBusinessRules brandBusinessRules;
 
-        public GetBrandByIdHandler(IBrandDal brandDal, IMapper mapper)
+        public GetBrandByIdHandler(IBrandDal brandDal, IMapper mapper, BrandBusinessRules brandBusinessRules)
         {
             this.brandDal = brandDal;
             this.mapper = mapper;
+            this.brandBusinessRules = brandBusinessRules;
         }
 
         public async Task<GetBrandByIdResponse> Handle(GetBrandByIdRequest request, CancellationToken cancellationToken)
         {
-            await brandBusinessRules.BrandShouldExistWhenRequestes(request.Id);
-
             var result = await brandDal.GetAsync(x => x.Id == request.Id);
-            return new GetBrandByIdResponse
-            {
-                GetBrandByIdDto = mapper.Map<GetBrandByIdDto>(result)
-            };
+
+            // iş kuralı
+            await BrandBusinessRules.BrandShouldExistWhenRequestes(result);
+
+            return mapper.Map<GetBrandByIdResponse>(result);
         }
     }
 }

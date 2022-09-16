@@ -1,9 +1,8 @@
-﻿using Application.Features.Brands.Dtos;
-
-namespace Application.Features.Brands.Queries.GetBrandById
+﻿namespace Application.Features.Brands.Queries.GetBrandById
 {
     public class GetBrandByIdResponse
     {
-        public GetBrandByIdDto GetBrandByIdDto { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

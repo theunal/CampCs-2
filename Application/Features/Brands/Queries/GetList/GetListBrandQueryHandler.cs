@@ -16,9 +16,6 @@ namespace Application.Features.Brands.Queries.GetList
             this.mapper = mapper;
             this.brandDal = brandDal;
         }
-
-
-
         public async Task<GetListBrandQueryResponse> Handle(GetListBrandQueryRequest request,
             CancellationToken cancellationToken)
         {

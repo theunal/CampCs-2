@@ -16,6 +16,7 @@ namespace Persistence
             options.UseSqlServer(configuration.GetConnectionString("CampCs2ConnectionString")));
 
             services.AddScoped<IBrandDal, BrandDal>();
+            services.AddScoped<IModelDal, ModelDal>();
 
             return services;
         }

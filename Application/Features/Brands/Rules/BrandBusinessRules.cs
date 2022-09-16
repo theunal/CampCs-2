@@ -20,10 +20,10 @@ namespace Application.Features.Brands.Rules
             if (result.Items.Any()) throw new BusinessException("Brand name exists.");
         }
 
-        public async Task BrandShouldExistWhenRequestes(int id)
+        public static Task BrandShouldExistWhenRequestes(Brand? brand)
         {
-            var result = await brandDal.GetAsync(x => x.Id == id);
-            if (result is null) throw new BusinessException("Requested brand does not exists.");
+            if (brand is null) throw new BusinessException("Requested brand does not exists.");
+            return Task.CompletedTask;
         }
     }
 }
